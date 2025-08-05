@@ -1,0 +1,197 @@
+@use "../base/const" as cn;
+
+.container {
+  // background-color:#204f72;
+  background-color: #111;
+  color: white;
+  text-align: center;
+  margin-top: 60px;
+  position: relative;
+  height: calc(100vh - 50px);
+}
+.frame {
+  position: absolute;
+  top: 0;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  margin: 20px;
+  // border: 2px double white;
+  pointer-events: none; /* フレームがクリックイベントを受け取らないようにする */
+}
+.frame::before,
+.frame::after {
+content: "";
+position: absolute;
+z-index: 2;
+}
+/* 外枠ライン */
+.frame::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid white;
+}
+/* 内枠ライン（間隔カスタム可） */
+.frame::after {
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 2px solid white;
+}
+
+.contentWrapper {
+  padding-top: 35px;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 20px;
+  color: rgb(204, 204, 204, 0.8);
+  letter-spacing: 5px;
+}
+
+.title {
+  font-size: 35px;
+  letter-spacing: 4px;
+  margin: 15px 0 10px;
+}
+
+.menuTitle{
+  font-size: 20px;
+  margin-top: 30px;
+  font-family: 'M PLUS Rounded 1c', 'Quicksand', 'Arial', sans-serif;
+}
+
+.option {
+  font-size: 1.3rem;
+  min-width: 190px;
+  height: 60px;
+  padding: 8px 14px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 5px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: white;
+    color: black;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+    background: #eee;
+    color: #111;
+  }
+}
+
+.backButton {
+  position: absolute;
+  top: 40px;
+  left: 50px;
+  font-size: 50px;
+  font-weight: bold;
+  background: none;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; // ←中央に寄せる
+  gap: 25px;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+// 角の飾り（黒い四角）
+.corner {
+  width: 20px;                // ← サイズアップ（12 → 20）
+  height: 20px;
+  border: 2px solid white;   // ← 太さアップ（2px → 3px）
+  position: absolute;
+}
+.topLeft {
+  top: 0;
+  left: 0;
+}
+.topRight {
+  top: 0;
+  right: 0;
+}
+.bottomLeft {
+  bottom: 0;
+  left: 0;
+}
+.bottomRight {
+  bottom: 0;
+  right: 0;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 5px;
+  margin: 24px 0;
+  color: #ddd;
+  text-align: center;
+}
+
+
+@media screen and (max-width: cn.$bp-xs) {
+.container {
+  margin-top: 50px;
+}
+.frame {
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  margin: 10px;
+}
+
+.contentWrapper {
+  padding: 20px 30px;
+}
+
+.subtitle {
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.title {
+  font-size: 25px;
+}
+
+.menuTitle{
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.option {
+  font-size: 1.1rem;
+  height: 50px;
+}
+
+.backButton {
+  top: 22px;
+  left: 25px;
+  font-size: 30px;
+}
+
+.grid {
+  gap: 0px;
+  max-width: 550px;
+}
+
+.description {
+  line-height: 1.8;
+  letter-spacing: 3px;
+}
+
+}

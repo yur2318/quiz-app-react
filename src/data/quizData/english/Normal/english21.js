@@ -1,0 +1,92 @@
+const QUIZ_ENGLISH = {
+  title: "can",
+  subject: "purple",
+  data: [
+      {
+        id: "01",
+        question: "次の英文を日本語に訳しなさい。<br>「I can run fast.」", 
+        answers: ["私は速く走ることができます。", "私は速く走りました。", "私は速く走っています。", "私は速く走りました。"],
+        correct: "私は速く走ることができます。",
+        hint: "",
+        explanation: "「can」は「～することができる」という意味だよ。例文→I can run fast.（私は速く走ることができます。）",
+      },
+      {
+        id: "02",
+        question: "「彼は英語が話せます。」を英語にした時、[ ]に入る語は？<br>　He [ ] English.",
+        answers: ["can speak", "can speaking", "can speaks", "do speak"],
+        correct: "can speak",
+        hint: "「主語 + can + 動詞の原形」の形だよ。",
+        explanation: "「can」の後ろには動詞の原形が来るよ。三人称単数の時に動詞に「s」をつけるのは現在形の時だけだから注意してね。",
+      },
+      {
+        id: "03",
+        question: "「私の妹はピアノが弾けます。」を英語にした時、[ ]に入る語は？<br>　My sister [ ] the piano.",
+        answers: ["can play", "play can", "can plays", "plays"],
+        correct: "can play",
+        hint: "「主語 + can + 動詞の原形」の形だよ。",
+        explanation: "「主語 + can + 動詞の原形」の形に慣れていこう！",
+      },
+      {
+        id: "04",
+        level: "hard",
+        question: "「彼は難しい漢字が読めます。」を英語にした時、正しいのは？",
+        answers: ["He can read difficult kanji.", "He can read kanji difficult.", "He reads difficult kanji can.", "He read can difficult kanji."],
+        correct: "He can read difficult kanji.",
+        hint: "「主語 + can + 動詞の原形」の形だよ。",
+        explanation: "「He can read difficult kanji.」で「彼は難しい漢字が読めます。」という意味になるよ。慣れてきたかな？",
+      },
+      {
+        id: "05",
+        question: "「彼女はダンスができません。」を英語にした時、[ ]に入る語は？<br>　She [ ] dance.",
+        answers: ["can not", "does not can", "not can", "can does not"],
+        correct: "can not",
+        hint: "「She can dance.」に否定の「not」をつけてみよう。",
+        explanation: "「can」の後ろに「not」をつけることで否定文になるよ。否定文の時は「can not」または短縮形の「cannot」「can't」を使うよ。",
+      },
+      {
+        id: "06",
+        question: "「彼らは上手に歌えません。」を英語にした時、[ ]に入る語は？<br>　They [ ] well.",
+        answers: ["cannot sing", "not can sing", "can sing not", "not sing can"],
+        correct: "cannot sing",
+        hint: "「They can sing well.」に否定の「not」をつけてみよう。",
+        explanation: "「can」の後ろに「not」をつけることで否定文になるよ。「cannot」または短縮形の「can't」を使うよ。",
+      },
+      {
+        id: "07",
+        question: "「私はギターが弾けません。」を英語にした時、正しいのは？",
+        answers: ["I can't play the guitar.", "I don't can play the guitar."],
+        correct: "I can't play the guitar.",
+        hint: "",
+        explanation: "canの否定系は「cannot」や「can't」を使うよ。don'tは使わないから注意してね。",
+      },
+      {
+        id: "08",
+        level: "hard",
+        question: "「あなたは泳げますか？」を英語にした時、[ ]に入る語は？<br>　[ ] swim?",
+        answers: ["Can you", "Do you can", "Are you can", "You can"],
+        correct: "Can you",
+        hint: "「Can + 主語 + 動詞の原形」の形だよ。",
+        explanation: "疑問文の時は「Can」を先頭に置いて、「Can you swim?」で「あなたは泳げますか？」という意味になるよ。",
+      },
+      {
+        id: "09",
+        question: "「日本語を話せますか？」を英語にした時、[ ]に入る語は？<br>　[ ] Japanese?",
+        answers: ["Can you speak", "Do you can speak", "Do can you speak", "Can speak you"],
+        correct: "Can you speak",
+        hint: "「Can + 主語 + 動詞の原形」の形だよ。",
+        explanation: "疑問文の時は「Can」を先頭に置いて、「Can you speak Japanese?」で「あなたは日本語を話せますか？」という意味になるよ。",
+      },
+      {
+        id: "10",
+        question: "「Can you help me?」の返事として正しいのはどれ？",
+        answers: ["Yes, I can.", "Yes, I do."],
+        correct: "Yes, I can.",
+        hint: "「Can you ~ ?」と聞かれているね。",
+        explanation: "「Can you ~ ?」と聞かれているから返事は「Yes, I can.」や「No, I can't.」が正しいよ。",
+      },
+    ]
+};
+
+export default {
+  english21: QUIZ_ENGLISH,
+};

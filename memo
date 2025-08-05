@@ -1,0 +1,7 @@
+<ruby><rt></rt></ruby>
+
+<ruby><rt></rt></ruby>
+
+netlify deploy --prod --dir=dist
+
+npm run generate:index

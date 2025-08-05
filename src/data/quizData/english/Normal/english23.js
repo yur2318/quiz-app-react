@@ -1,0 +1,90 @@
+const QUIZ_ENGLISH = {
+  title: "過去形",
+  subject: "purple",
+  data: [
+      {
+        id: "01",
+        question: "次の英文を日本語に訳しなさい。<br>「I didn’t see the movie.」",
+        answers: ["私は映画を見ませんでした。", "私は映画を見ました。"],
+        correct: "私は映画を見ませんでした。",
+        hint: "",
+        explanation: "過去の否定文では「did not」や「didn’t」を使うよ。",
+      },
+      {
+        id: "02",
+        question: "「彼は今朝、朝食を食べませんでした。」を英語にした時、[ ]に入る語は？<br>　He [ ] breakfast this morning.",
+        answers: ["did not eat", "did not ate", "did not eating", "did not eats"],
+        correct: "did not eat",
+        hint: "did notの後は動詞の原形を使うよ。",
+        explanation: "過去の否定文では「did not」の後は動詞の原形だよ！",
+      },
+      {
+        id: "03",
+        question: "「私は昨日宿題をしませんでした。」を英語にした時、[ ]に入る語は？<br>　I [ ] my homework yesterday.",
+        answers: ["did not do", "did not did", "did not do", "am did not"],
+        correct: "did not do",
+        hint: "「宿題をする」は「do homework」だよ。",
+        explanation: "「did not do」で「宿題をしませんでした。」という意味になるよ。「did not」の後は動詞の原形「do」を使うよ。",
+      },
+      {
+        id: "04",
+        question: "「映画を見ましたか？」を英語にした時、[ ]に入る語は？<br>　[ ] the movie?",
+        answers: ["Did you see", "Did you saw", "Do you saw", "You saw"],
+        correct: "Did you see",
+        hint: "過去形の疑問文では文頭に「did」を使うよ。",
+        explanation: "過去の疑問文では「Do」ではなく「Did」を使うよ。",
+      },
+      {
+        id: "05",
+        question: "「彼がこのケーキを作りましたか？」を英語にした時、[ ]に入る語は？<br>　[ ] this cake?",
+        answers: ["Did he make", "Did he makes", "Do he made", "Did he made"],
+        correct: "Did he make",
+        hint: "Did→主語→動詞の原形の順番だよ。",
+        explanation: "過去の疑問文では「Did→主語→動詞の原形→目的語」となるよ。覚えておこう！",
+      },
+      {
+        id: "06",
+        question: "「彼女は昨日買い物に行きましたか？」を英語にした時、[ ]に入る語は？<br>　[ ] shopping yesterday?",
+        answers: ["Did she go", "Did she goes", "Do she went", "Do she go"],
+        correct: "Did she go",
+        hint: "Did→主語→動詞の原形の順番だよ。",
+        explanation: "過去の疑問文では「Did→主語→動詞の原形→目的語」となるよ。「go」の過去形は「went」だけど、疑問文では動詞の原形「go」を使うよ。",
+      },
+      {
+        id: "07",
+        question: "「昨日この鍵を見つけました。」を英語にした時、[ ]に入る語は？<br>　I [ ] this key yesterday.",
+        answers: ["found", "finded", "finds", "find"],
+        correct: "found",
+        hint: "「find」の過去形は「found」だよ。",
+        explanation: "「find」の過去形は「found」だよ。「昨日」は「yesterday」で、文の最後に置くよ。",
+      },
+      {
+        id: "08",
+        question: "「彼は写真を撮りました。」を英語にした時、正しいのは？",
+        answers: ["He took a photo.", "He take a photo.", "He taked a photo.", "He taken a photo."],
+        correct: "He took a photo.",
+        hint: "「take」の過去形は「took」だよ。",
+        explanation: "「take」の過去形は「took」だよ。「写真を撮る」は「take a photo」となるよ。",
+      },
+      {
+        id: "09",
+        question: "「昨日この本を読みました。」を英語にした時、[ ]に入る語は？<br>　I [ ] this book yesterday.",
+        answers: ["read", "red", "reading", "reads"],
+        correct: "read",
+        hint: "「read」の過去形は「read」だよ。",
+        explanation: "「read」の過去形は「read」で、綴りは同じだけど過去形は「レッド」と読むよ。",
+      },
+      {
+        id: "10",
+        question: "「彼女に伝えました。」を英語にした時、[ ]に入る語は？<br>　I [ ].",
+        answers: ["told her", "tell her", "tells her", "telled her"],
+        correct: "told her",
+        hint: "「tell」の過去形は「told」だよ。",
+        explanation: "「tell」の過去形は「told」だよ。「彼女に」は目的語だから「her」を使うよ。",
+      },
+    ]
+};
+
+export default {
+  english23: QUIZ_ENGLISH,
+};

@@ -1,0 +1,90 @@
+const QUIZ_ENGLISH = {
+  title: "助動詞",
+  subject: "purple",
+  data: [
+      {
+        id: "01",
+        question: "次の英文を日本語に訳しなさい。<br>「He may come to the class.」",
+        answers: ["彼は授業に来るかもしれません。", "彼は授業に来なければなりません。"],
+        correct: "彼は授業に来るかもしれません。",
+        hint: "「may」は「〜かもしれない」という意味の助動詞だよ。",
+        explanation: "「may」は「〜かもしれない」という意味の助動詞だよ。",
+      },
+      {
+        id: "02",
+        question: "次の英文を日本語に訳しなさい。<br>「You may go now.」",
+        answers: ["あなたは今行ってもいいです。", "あなたは今行かなければなりません。"],
+        correct: "あなたは今行ってもいいです。",
+        hint: "",
+        explanation: "「may」には「〜してもいい」という許可の意味もあるよ。",
+      },
+      {
+        id: "03",
+        question: "「彼女は家にいるかもしれません。」を英語にした時、[ ]に入る語は？<br>　She [ ] at home.",
+        answers: ["may be", "must be", "may is", "must is"],
+        correct: "may be",
+        hint: "助動詞の後には動詞の原形が続くよ。",
+        explanation: "「かもしれない」という意味の助動詞は「may」だよ。助動詞の後には動詞の原形が続くから「is」じゃなくて原形の「be」になるよ。",
+      },
+      {
+        id: "04",
+        question: "次の英文を日本語に訳しなさい。<br>「May I use your pen?」",
+        answers: ["あなたのペンを使ってもいいですか？", "あなたのペンを使いますか？"],
+        correct: "あなたのペンを使ってもいいですか？",
+        hint: "許可を求める表現だよ。",
+        explanation: "「may」を使った疑問文は、許可を求める時に使うよ。〇〇してもいいですか？という表現でよく使うよ！",
+      },
+      {
+        id: "05",
+        question: "次の英文を日本語に訳しなさい。<br>「You should eat breakfast.」",
+        answers: ["朝食を食べるべきです。", "朝食を食べなさい。"],
+        correct: "朝食を食べるべきです。",
+        hint: "",
+        explanation: "「should」は「〜すべき」というアドバイスや提案を示す助動詞だよ。助動詞の後には動詞の原形が続くよ。",
+      },
+      {
+        id: "06",
+        question: "「遅れるべきではありません。」を英語にした時、[ ]に入る語は？<br>　You [ ] late.",
+        answers: ["should not be", "may not be", "should not", "should not is"],
+        correct: "should not be",
+        hint: "「should not」で「〜すべきではない」という意味だよ。",
+        explanation: "「should not」で「〜すべきではない」という意味になるよ。助動詞の後には動詞の原形が続くから、「be」を使うよ。",
+      },
+      {
+        id: "07",
+        question: "「私たちは何をすべきですか？」を英語にした時、[ ]に入る語は？<br>　[ ] we do?",
+        answers: ["What should", "What must", "What may", "What can"],
+        correct: "What should",
+        hint: "「〜すべき」を表す助動詞は何だったかな？",
+        explanation: "「What should we do?」は「私たちは何をすべきですか？」という意味になるよ。",
+      },
+      {
+        id: "08",
+        question: "「私たちはもう行かなければなりません。」英語にした時、正しいのは？",
+        answers: ["We must go now.", "We may go now.", "We should go now.", "We can go now."],
+        correct: "We must go now.",
+        hint: "「〜しなければならない」を表す助動詞は何だったかな？",
+        explanation: "「〜しなければならない」という意味の助動詞は「must」「have to」だよ。",
+      },
+      {
+        id: "09",
+        question: "「明日は雨が降るかもしれません。」を英語にした時、[ ]に入る語は？<br>　It [ ] rain tomorrow.",
+        answers: ["may be", "must be", "can be", "should be"],
+        correct: "may be",
+        hint: "「〜かもしれない」を表す助動詞は何だったかな？",
+        explanation: "「〜かもしれない」という意味の助動詞は「may」だよ。",
+      },
+      {
+        id: "10",
+        question: "「彼は一生懸命勉強するべきです。」を英語にした時、[ ]に入る語は？<br>　He [ ] hard.",
+        answers: ["should study", "may study", "must study", "can study"],
+        correct: "should study",
+        hint: "「〜すべき」を表す助動詞は何だったかな？",
+        explanation: "「〜すべき」という意味の助動詞は「should」だよ。",
+      },
+    ]
+};
+
+export default {
+  english37: QUIZ_ENGLISH,
+};

@@ -1,0 +1,90 @@
+const QUIZ_ENGLISH = {
+  title: "過去形",
+  subject: "purple",
+  data: [
+      {
+        id: "01",
+        question: "次の英文を日本語に訳しなさい。<br>「I opened the door.」",
+        answers: ["私はドアを開けました。", "私はドアを開けます。"],
+        correct: "私はドアを開けました。",
+        hint: "",
+        explanation: "動詞に「ed」をつけることで「〜した」という過去形になるよ。",
+      },
+      {
+        id: "02",
+        question: "「彼女は部屋を掃除しました。」を英語にした時、[ ]に入る語は？<br>　She [ ] the room.",
+        answers: ["cleaned", "cleaneds", "cleaning", "clean"],
+        correct: "cleaned",
+        hint: "原形の動詞「clean」に「ed」をつけて過去形にしよう。",
+        explanation: "過去形の文なので三人称単数現在形の「s」はつけないよ。",
+      },
+      {
+        id: "03",
+        question: "「私は昨日テレビを見ました。」を英語にした時、[ ]に入る語は？<br>　I [ ] yesterday.",
+        answers: ["watched TV", "watch TV", "watches TV", "watching TV"],
+        correct: "watched TV",
+        hint: "原形の動詞「watch」に「ed」をつけて過去形にしよう。",
+        explanation: "「watched」は「watch」の過去形で、「私は昨日テレビを見ました。」という意味になるよ。",
+      },
+      {
+        id: "04",
+        question: "「先週京都を訪れました。」を英語にした時、[ ]に入る語は？<br>　[ ] last week.",
+        answers: ["visited Kyoto", "visiting Kyoto", "visit Kyoto", "visits Kyoto"],
+        correct: "visited Kyoto",
+        hint: "原形の動詞「visit」に「ed」をつけて過去形にしよう。",
+        explanation: "「visited」は「visit」の過去形で、「先週京都を訪れました。」という意味になるよ。",
+      },
+      {
+        id: "05",
+        question: "「彼のことが好きでした。」を英語にした時、[ ]に入る語は？<br>　I [ ].",
+        answers: ["liked him", "likeed him", "liked he", "likeed he"],
+        correct: "liked him",
+        hint: "動詞の原形が「e」で終わる時は「d」だけつけるよ。",
+        explanation: "動詞の原形が「e」で終わる時は「d」だけつけるよ。動詞の後ろの「彼」は目的語だから「him」を使うよ。",
+      },
+      {
+        id: "06",
+        question: "次の英文を日本語に訳しなさい。<br>「I went to the park yesterday.」",
+        answers: ["私は昨日公園に行きました。", "私は昨日公園に行きます。"],
+        correct: "私は昨日公園に行きました。",
+        hint: "",
+        explanation: "動詞の過去形は「ed」をつける以外にも不規則な変化をするものがあるよ。「go」の過去形は「went」なんだ。ややこしいね！",
+      },
+      {
+        id: "07",
+        question: "「彼女は夕飯にピザを食べました。」を英語にした時、[ ]に入る語は？<br>　She [ ] pizza for dinner.",
+        answers: ["ate", "eated", "did eat", "eaten"],
+        correct: "ate",
+        hint: "「eate」の過去形は「ate」だよ。",
+        explanation: "「eat」の過去形は「ate」だよ。",
+      },
+      {
+        id: "08",
+        question: "「チヨは昨日宿題をしました。」を英語にした時、[ ]に入る語は？<br>　Chiyo [ ] yesterday.",
+        answers: ["did her homework", "her homework did", "did do her homework", "doed her homework"],
+        correct: "did her homework",
+        hint: "宿題をするは「do homework」だよ。",
+        explanation: "主語→動詞→目的語の順番で、「Chiyo did her homework.」で「チヨは昨日宿題をしました。」という意味になるよ。時を表す単語は文末に置くよ。",
+      },
+      {
+        id: "09",
+        question: "「彼らは六時に家に帰ってきました。」を英語にした時、[ ]に入る語は？<br>　They [ ]",
+        answers: ["came home at six.", "home came at six.", "comed at six home.", "at home comed six."],
+        correct: "came home at six.",
+        hint: "「come」の過去形は「came」だよ。",
+        explanation: "主語→動詞→目的語→時を表す単語の順番に慣れていこう。",
+      },
+      {
+        id: "10",
+        question: "「新しいかばんを手に入れました。」を英語にした時、正しいのは？",
+        answers: ["I got a new bag.", "I get a new bag.", "I geteed a new bag.", "I got new bag."],
+        correct: "I got a new bag.",
+        hint: "「get」の過去形は「got」だよ。",
+        explanation: "「get」の過去形は「got」だよ。かばんが一つなら「a new bag」、複数なら「new bags」となるよ。",
+      },
+    ]
+};
+
+export default {
+  english22: QUIZ_ENGLISH,
+};

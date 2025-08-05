@@ -1,0 +1,91 @@
+const QUIZ_ENGLISH = {
+  title: "現在進行形",
+  subject: "purple",
+  data: [
+      {
+        id: "01",
+        question: "次の英文を日本語に訳しなさい。<br>「I'm studying history now.」",
+        answers: ["私は今歴史を勉強しています。", "私は歴史を勉強しました。"],
+        correct: "私は今歴史を勉強しています。",
+        hint: "",
+        explanation: "「be動詞 + 動詞のing形」で「今まさに～している」という意味になるよ。これを現在進行形というよ。よく使うから覚えておこうね。",
+      },
+      {
+        id: "02",
+        question: "「私たちは昼ごはんを食べています。」を英語にした時、[ ]に入る語は？<br>　[ ] lunch.",
+        answers: ["We are eating", "We eating", "We are eat", "We do eating"],
+        correct: "We are eating",
+        hint: "「主語 + be動詞 + 動詞のing形」の形だよ。",
+        explanation: "現在進行形の「主語 + be動詞 + 動詞のing形」の形に慣れていこう！",
+      },
+      {
+        id: "03",
+        question: "「私の父は本を読んでいます。」を英語にした時、[ ]に入る語は？<br>　[ ] a book.",
+        answers: ["My father is reading", "My father reading", "My father is reads", "My father does reading"],
+        correct: "My father is reading",
+        hint: "「主語 + be動詞 + 動詞のing形」の形だよ。",
+        explanation: "「私の父」が単数形だからbe動詞の「is」を使うよ。三人称単数の時に動詞に「s」をつけるのは現在形の時だけだから注意してね。",
+      },
+      {
+        id: "04",
+        question: "「彼らはサッカーをしています。」を英語にした時、[ ]に入る語は？<br>　[ ] soccer.",
+        answers: ["They are playing", "They playing", "They are play", "They do playing"],
+        correct: "They are playing",
+        hint: "「主語 + be動詞 + 動詞のing形」の形だよ。",
+        explanation: "「彼ら」は複数形の主語だからbe動詞の「are」を使うよ。",
+      },
+      {
+        id: "05",
+        question: "「ミナトは今、勉強していません。」を英語にした時、[ ]に入る語は？<br>　Minato [ ] studying now.",
+        answers: ["is not", "are not", "does not", "not is"],
+        correct: "is not",
+        hint: "「Minato is studying now.」に否定の「not」をつけてみよう。",
+        explanation: "be動詞の後ろに「not」をつけることで否定文になるよ。",
+      },
+      {
+        id: "06",
+        question: "次の英文を日本語に訳しなさい。<br>「Are you watching TV now?」",
+        answers: ["あなたは今テレビを見ていますか？", "あなたはテレビを見ましたか？"],
+        correct: "あなたは今テレビを見ていますか？",
+        hint: "",
+        explanation: "現在進行形を疑問文の形にする時はbe動詞を主語の前に置くよ。",
+      },
+      {
+        id: "07",
+        question: "「あなたは今、ギターを弾いていますか？」を英語にした時、[ ]に入る語は？<br>　[ ] the guitar?",
+        answers: ["Are you playing", "Do you play", "Are you play", "You are playing"],
+        correct: "Are you playing",
+        hint: "「You are playing the guitar.」を疑問文にしてみよう。",
+        explanation: "be動詞を前に持ってきて疑問系の文にするよ。",
+      },
+      {
+        id: "08",
+        question: "「Are they studying English now?」の返事として正しいのはどれ？",
+        answers: ["Yes, they are.",  "Yes, they do."],
+        correct: "Yes, they are.",
+        hint: "「Are they ~ ?」と聞かれているね。",
+        explanation: "「Are they ~ ?」と聞かれているから返事は「Yes, they are.」が正しいよ。",
+      },
+      {
+        id: "09",
+        level: "hard",
+        question: "「何してるの？」を英語にした時、[ ]に入る語は？<br>　[ ] doing?",
+        answers: ["What are you", "What do you", "What you are", "What you"],
+        hint: "疑問詞「What」を先頭に置いて、あとは疑問の形にしてみよう。",
+        explanation: "先頭に疑問詞「What」を置いて、be動詞を主語の前に持ってくるよ。よく使う表現だからこの文ごと覚えても便利だよ。",
+      },
+      {
+        id: "10",
+        level: "hard",
+        question: "「彼は悲しんでいます。」を英語にした時、[ ]に入る語は？<br>　He [ ].",
+        answers: ["is sad", "is sading"],
+        correct: "is sad",
+        hint: "「be動詞 + 形容詞」の形だよ。",
+        explanation: "be動詞の文は状態を表しているから、現在進行形は使わないよ。現在進行形は「動作」を表す時に使うんだ！！",
+      },
+    ]
+};
+
+export default {
+  english20: QUIZ_ENGLISH,
+};

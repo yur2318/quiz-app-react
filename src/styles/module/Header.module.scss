@@ -1,0 +1,257 @@
+// src/styles/module/Header.module.scss
+@use "../base/const" as cn;
+
+.header {
+  width: 100%;
+  height: 60px;
+  background-color: cn.$color-base;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 1px cn.$color-lightgray;
+  z-index: 99;
+
+  li > a {
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.3s ease;
+    
+    &:visited {
+      color: inherit;
+    }
+    &:hover {
+      background-color: cn.$color-lightgray;
+    }
+  }
+}
+
+.navLeft {
+  height: 100%;
+  display: flex;
+
+  &List {
+    display: flex;
+  }
+
+  &Item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &Logo {
+    padding-top: 3px;
+
+    img {
+      display: block;
+      width: 55px;
+      height: 55px;
+    }
+  }
+}
+
+.subjectList {
+  position: absolute;
+  width: 78px;
+  top: 100%;          // 親の下に配置
+  left: 0;            // 左揃えで真下に出す
+  background: white;
+  box-shadow:  0 1px 1px cn.$color-lightgray;
+  z-index: 100;
+  list-style: none;
+
+  li {
+    margin: 5px 0;
+
+    a {
+      padding: 5px 0;
+      text-decoration: none;
+      color: #333;
+    }
+  }
+}
+
+
+.navRight {
+  height: 100%;
+  display: flex;
+
+  &List {
+    display: flex;
+    align-items: center;
+  }
+
+  &Item {
+    padding-right: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.trigger {
+  position: relative;
+  z-index: 1000;
+  border: 0;
+  padding: 0;
+  background: none;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+
+  &::before,
+  &::after,
+  > span {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border-top: 5px solid cn.$color-main;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &::before {
+    top: 4.5px;
+    transform-origin: top right;
+  }
+
+  &::after {
+    bottom: 4px;
+    transform-origin: bottom right;
+  }
+
+  > span {
+    top: 18px;
+    position: absolute;
+  }
+}
+
+.triggerActive {
+  &::before {
+    transform: translateX(-3px) rotate(-45deg);
+  }
+  &::after {
+    transform: translateX(-3px) rotate(45deg);
+  }
+  > span {
+    transform: translateX(100%);
+  }
+}
+
+.menuPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.25);
+  padding: 60px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: transparent;
+  font-size: 28px;
+  border: none;
+  cursor: pointer;
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &.home    { background: cn.$color-orange; }
+  &.brainCheck   { background: cn.$color-green; }
+  &.collection   { background: cn.$color-red; }
+  &.diary { background: cn.$color-blue; }
+  &.setting { background: cn.$color-purple; }
+}
+
+.login {
+  font-size: 14px;
+  text-align: right;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: cn.$bp-xs) {
+  .header {
+    height: 50px;
+  }
+
+  .navLeft {
+    &Logo {
+      img {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  }
+
+  .navRight {
+  &Item {
+    display: none;
+    &:nth-of-type(3) {
+      display: block;
+    }
+  }
+}
+.trigger {
+    width: 35px;
+    height: 100%;
+    align-items: center; // ↑ 上下中央揃え
+
+    &::before,
+    &::after,
+    > span {
+      border-top: 4px solid cn.$color-main;
+    }
+
+    &::before {
+      top: 12px;
+    }
+
+    &::after {
+      bottom: 10px;
+    }
+
+    > span {
+      top: 24px;
+    }
+  }
+
+
+
+
+}

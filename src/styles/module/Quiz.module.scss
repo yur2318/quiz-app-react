@@ -1,0 +1,414 @@
+// src/styles/quiz.scss
+@use "../base/const" as cn;
+
+.quizContainer {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  width: 90%;
+  margin: 0 auto;
+}
+.quizHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5px;
+
+  .headerBack {
+    width: 170px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .headerTitle {
+    text-align: center;
+    font-size: 38px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  .headerStatus {
+    width: 170px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &Progress {
+      position: relative;
+      height: 28px;
+      width: 170px;
+      background-color: #eee;
+      border-radius: 30px;
+      overflow: hidden;
+      &Bar {
+        height: 100%;
+        background-color: var(--main-color);
+        transition: width 0.3s ease;
+      }
+    }
+    &Number {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .headerAccuracyRate {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}
+.quizQuestion {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 230px;
+  border: 3px solid var(--main-color);
+  border-radius: 12px;
+  padding: 40px;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  .sup {
+  transform: translateY(-10px);
+  }
+  .quiz-image {
+    max-width: 400px;
+    max-height: 230px;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+    &.is-enlarged {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(2);
+      max-width: 45vw;
+      max-height: 45vh;
+      cursor: zoom-out;
+      z-index: 999;
+      background-color: white;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+  }
+  .difficultyMark {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    animation: float 2.5s ease-in-out infinite;
+  }
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+}
+.quizQuestion.no-image {
+  justify-content: center;
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+.answerButton {
+  height: 62px;
+  width: 100%;
+  background-color: var(--main-color-answer);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: 550;
+  padding: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.25s ease;
+
+  .fraction .top {
+    margin-top: -14px;    /* 分数を下にずらす */
+  }
+  &:hover {
+    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.12);
+    background-color: var(--main-color-dark);
+  }
+  &:active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+  &.correct {
+    background-color: cn.$color-red-dark;
+    animation: popIn 0.4s ease;
+  }
+  &.incorrect {
+    opacity: 0.6;
+    transform: scale(0.98);
+    pointer-events: none;
+  }
+}
+
+// アニメーション（正解時にポンと膨らむ）
+@keyframes popIn {
+  0%   { transform: scale(0.97); opacity: 0.85; }
+  50%  { transform: scale(1.02); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.quizActions {
+  margin: 15px 0;
+  .actionButtons{
+    height: 46px;
+  }
+  .hintButton,
+  .nextButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 1px solid var(--main-color);
+    background-color: #fff;
+    color: var(--main-color);
+    cursor: pointer;
+    &:hover {
+      background-color: #f9f9f9;
+    }
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+  .nextButton {
+    float: right;
+  }
+
+  .explanationBlock {
+    display: flex;
+    margin-top: 5px;
+  }
+  
+  .explanationLabel {
+    width: 70px;
+    font-weight: bold;
+    color: var(--main-color); // オレンジ系の色に
+    border-right: 5px solid var(--main-color);
+    padding-left: 10px;
+    font-size: 18px;
+  }
+  
+  .explanationText {
+    flex: 1;
+    margin: 0 10px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+  }
+
+}
+
+.judgement-mark {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: popFade 0.6s ease-out;
+  opacity: .8;
+  z-index: 10;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@keyframes popFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%,-50%) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
+  }
+}
+
+// 分数表示のスタイル
+.fraction {
+  display: inline-block;
+  line-height: 1.2;
+  vertical-align: middle; 
+  text-align: center;
+}
+.fraction .top {
+  display: block;
+  border-bottom: 1px solid;
+}
+// .fraction .bottom {
+//   display: block;
+// }
+// 累乗
+
+
+
+
+
+
+@media screen and (max-width: cn.$bp-sm) {
+.quizHeader {
+    // display: block;
+    position: relative;
+  
+  .headerBack {
+    width: 40px;
+    position: absolute;
+    top: 4px;
+    left: -5px;
+  }
+  .headerTitle {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 30px;
+    font-size: 27px;
+  }
+  .headerStatus {
+    &Number {
+     font-size: 18px;
+    }
+    &Progress {
+      width: 100%;
+      height: 20px;
+    }
+    .headerAccuracyRate {
+      font-size: 18px;
+    }
+  }
+}
+.quizQuestion {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  padding: 10px;
+  padding-left: 20px;
+  .quiz-image {
+    max-width: 250px;
+    max-height: 150px;
+    display: block;
+    margin: 0 auto;
+  }
+  .difficultyMark 
+  {
+    top: 5px;
+    left: 0px;
+    width: 25px;
+    height: 25px;
+  }
+}
+.answers {
+  gap: 15px;
+}
+.answerButton {
+  padding: 10px;
+  font-size: 18px;
+  line-height: 1;
+  .fraction .top {
+    margin-top: 0;    /* さらに下にずらす */
+  }
+  &:active {
+    position: relative;
+    top: 4px;
+    left: 4px;
+    box-shadow: none;
+  }
+}
+
+}
+
+@media screen and (max-width: cn.$bp-xs) {
+  .quizHeader {
+    .headerTitle {
+      font-size: 27px;
+    }
+    .headerStatus {
+      .headerAccuracyRate {
+        font-size: 12px;
+        white-space: nowrap;
+      }
+   }
+  }
+  .quizQuestion {
+    margin-bottom: 10px;
+    font-size: 23px;
+    padding: 10px;
+    .quiz-image {
+      max-height: 130px;
+    }
+    .difficultyMark {
+      top: 3px;
+    }
+  }
+  .answers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .answerButton {
+    height: 50px;
+    .fraction .top {
+      margin-top: -8px;    /* さらに下にずらす */
+    }
+  }
+  .quizActions {
+    .explanationBlock {
+      display: block;
+      margin-top: 3px;
+    }  
+    .explanationLabel {
+      border: none;
+      padding:0 10px;
+    }   
+  }
+
+}
+
+
+
+.quiz-color-pink {
+  --main-color: #{cn.$color-pink};
+  --main-color-dark: #{cn.$color-pink-dark};
+  --main-color-answer: #{cn.$color-pink-answer};
+}
+.quiz-color-blue {
+  --main-color: #{cn.$color-blue};
+  --main-color-dark: #{cn.$color-blue-dark};
+  --main-color-answer: #{cn.$color-blue-answer};
+}
+.quiz-color-green {
+  --main-color: #{cn.$color-green};
+  --main-color-dark: #{cn.$color-green-dark};
+  --main-color-answer: #{cn.$color-green-answer};
+}
+.quiz-color-orange {
+  --main-color: #{cn.$color-orange};
+  --main-color-dark: #{cn.$color-orange-dark};
+  --main-color-answer: #{cn.$color-orange-answer};
+}
+.quiz-color-purple {
+  --main-color: #{cn.$color-purple};
+  --main-color-dark: #{cn.$color-purple-dark};
+  --main-color-answer: #{cn.$color-purple-answer};
+}

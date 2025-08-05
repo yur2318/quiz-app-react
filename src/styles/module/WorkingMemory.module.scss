@@ -1,0 +1,95 @@
+@use "../base/const" as cn;
+
+p {
+  font-size: 1rem;
+}
+
+// .memoryWrapper {
+//   padding-top: 10px;           // ← 少しだけ下げる
+// }
+
+.subtitle {
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+
+
+.showTimer {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 12px 0;
+  letter-spacing: 2px;
+}
+
+.bigNumber {
+  font-size: 5rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  letter-spacing: 10px;
+  margin-bottom: 30px;
+}
+
+.inputField {
+  font-size: 1.8rem;
+  padding: 12px 24px;
+  text-align: center;
+  border: 2px solid white;
+  background-color: white;
+  color: black;
+  margin: 60px auto;
+  display: block;
+  max-width: 220px;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  }
+  &::placeholder {
+    color: #aaa;
+  }
+}
+
+.resultRow {
+  width: 260px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+
+@media screen and (max-width: cn.$bp-xs) {
+.memoryGame {
+  padding: 50px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+}
+
+.bigNumber {
+  font-size: 2.8rem;
+  margin: 34px 0;
+  letter-spacing: 2px;
+}
+
+.inputField {
+  font-size: 1.5rem;
+  padding: 8px 12px;
+  max-width: 200px;
+  margin-top: 100px;
+}
+
+.resultRow {
+  width: 230px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+}

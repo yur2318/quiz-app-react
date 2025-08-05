@@ -1,0 +1,68 @@
+// src/styles/module/Loading.module.scss
+@use "../base/const" as cn;
+
+.loadingOverlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loadingText {
+  margin-top: 16px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #444;
+  font-family: sans-serif;
+}
+
+.dotLoader {
+  display: flex;
+  gap: 15px;
+}
+
+.dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+  background-color: cn.$color-pink;
+  animation-delay: 0s;
+}
+.dot:nth-child(2) {
+  background-color: cn.$color-blue;
+  animation-delay: 0.15s;
+}
+.dot:nth-child(3) {
+  background-color: cn.$color-green;
+  animation-delay: 0.3s;
+}
+.dot:nth-child(4) {
+  background-color: cn.$color-orange;
+  animation-delay: 0.45s;
+}
+.dot:nth-child(5) {
+  background-color: cn.$color-purple; 
+  animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+    opacity: 1;
+  }
+}

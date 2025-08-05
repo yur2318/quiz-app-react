@@ -1,0 +1,74 @@
+@use "./const" as cn;
+
+body {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 14px;
+  color: cn.$color-main;
+  font-family: "Noto Sans JP", "Meiryo", "Arial", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  background: cn.$color-base;
+  letter-spacing: .05em;
+  -webkit-tap-highlight-color: cn.$color-base;
+}
+
+main{
+  margin-top: 60px;
+}
+@media screen and (max-width: cn.$bp-xs) {
+  main{
+    margin-top: 50px;
+  }
+}
+
+::selection{
+  background: cn.$color-main;
+  color: #fff;
+}
+
+ul, ol, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+dl, dt, dd, figure, figcaption {
+  margin: 0;
+}
+
+strong, em, b {
+  font-weight: 600;
+}
+
+h1 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ruby {
+  ruby-position: over; // ふりがなを上に表示（デフォルト）
+  line-height: 1.2; // 行の高さを詰める
+}
+
+rt {
+  font-size: 0.6em; // ふりがなの文字サイズ
+  line-height: 1; // ふりがなの行間を狭める
+  margin: 0;
+  padding: 0;
+}
+
+strong {
+  font-weight: 800;
+}
+
+sup {
+  display: inline-block;
+  font-size: 0.8em;
+  vertical-align: super;
+}
+
