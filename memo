@@ -5,3 +5,7 @@
 netlify deploy --prod --dir=dist
 
 npm run generate:index
+
+git add .
+git commit -m "変更内容の説明"  ← 例："タイトルを修正"
+git push origin main
