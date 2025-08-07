@@ -9,7 +9,8 @@
 }
 
 .timerRow {
-  width: 60%;
+  width: 550px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -68,6 +69,7 @@
 
 .piecesArea {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 24px;
   margin: 10px 0;
@@ -130,7 +132,7 @@
   position: absolute;
   top: 5%;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* 黒で50%透明 */
+  background-color: rgba(17, 17, 17, 0.5); /* 黒で50%透明 */
 
   display: flex;               /* ← これ */
   justify-content: center;     /* 横方向中央 */
@@ -174,6 +176,9 @@ p{
 }
 .piece {
   gap: 3px;
+}
+.piecesArea {
+  gap: 0;
 }
 .pieceRow {
   gap: 3px;

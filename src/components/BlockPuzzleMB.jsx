@@ -4,29 +4,36 @@ import styles from "../styles/module/BlockPuzzle.module.scss";
 import { blockPuzzleSmall1 } from "../data/gameData/blockPuzzle1";
 import { blockPuzzleSmall2 } from "../data/gameData/blockPuzzle2";
 import { blockPuzzleSmall3 } from "../data/gameData/blockPuzzle3";
+import { blockPuzzleSmall4 } from "../data/gameData/blockPuzzle4";
+import { blockPuzzleSmall5 } from "../data/gameData/blockPuzzle5";
+import { blockPuzzleSmall6 } from "../data/gameData/blockPuzzle6";
+import { blockPuzzleSmall7 } from "../data/gameData/blockPuzzle7";
+import { blockPuzzleSmall8 } from "../data/gameData/blockPuzzle8";
+import { blockPuzzleSmall9 } from "../data/gameData/blockPuzzle9";
+import { blockPuzzleSmall10 } from "../data/gameData/blockPuzzle10";
 
 // ゲーム定数の定義
 const TIME_LIMIT = 60; // 制限時間（秒）
-// const MAX_STAGE = 10;  // 最大ステージ数
+const MAX_STAGE = 10;  // 最大ステージ数
 const cellSize = 36;   // セルのサイズ（ピクセル）
 
-// ランダムモードの場合は以下を使用
-// const generateStages = (sources) => {
-//   return Array.from({ length: MAX_STAGE }, (_, i) => {
-//     const source = sources[i % sources.length];
-//     const randomIndex = Math.floor(Math.random() * source.length);
-//     return source[randomIndex];
-//   });
-// };
-
-// 特定のファイル（blockPuzzleSmall3）をすべて出題する確認モード
-const generateStages = () => {
-  return blockPuzzleSmall2; // 全問題を順番に出題
+// ランダムモード
+const generateStages = (sources) => {
+  return Array.from({ length: MAX_STAGE }, (_, i) => {
+    const source = sources[i % sources.length];
+    const randomIndex = Math.floor(Math.random() * source.length);
+    return source[randomIndex];
+  });
 };
+
+// 特定のファイル出題する確認モード
+// const generateStages = () => {
+//   return blockPuzzleSmall5; // 全問題を順番に出題
+// };
 
 const BlockPuzzleMB = ({ onBack }) => {
   // データソースの配列を作成（メモ化で再計算を防ぐ）
-  const sources = useMemo(() => [blockPuzzleSmall1, blockPuzzleSmall2, blockPuzzleSmall3], []);
+  const sources = useMemo(() => [blockPuzzleSmall1, blockPuzzleSmall2, blockPuzzleSmall3, blockPuzzleSmall4, blockPuzzleSmall5, blockPuzzleSmall6, blockPuzzleSmall7, blockPuzzleSmall8, blockPuzzleSmall9, blockPuzzleSmall10], []);
   // 状態管理
   const [stages, setStages] = useState(() => generateStages(sources)); // 全ステージデータ
   const [currentIndex, setCurrentIndex] = useState(0);                 // 現在のステージインデックス
@@ -56,6 +63,20 @@ const rotateShape = (shape) => {
   return rotated;
 };
 
+// リプレイボタンの処理
+const handleReplay = () => {
+  const newStages = generateStages(sources); // 新しくステージ作り直す
+  setStages(newStages);
+  setCurrentIndex(0);
+  setTimeLeft(TIME_LIMIT);
+  setCleared(false);
+  setTimeUp(false);
+  setScore(0);
+  setDragging(null);
+  setJustRestarted(true);
+};
+
+
 // ピース配置をリセットする関数
 const resetPieces = () => {
   setPieces(prev =>
@@ -68,7 +89,6 @@ const resetPieces = () => {
   );
   setCleared(false);
   setTimeUp(false);
-  setTimeLeft(TIME_LIMIT);
 };
 
 
@@ -76,18 +96,16 @@ const resetPieces = () => {
   useEffect(() => {
     if (!current) return;
     // 盤面とピースを設定
-      setBoard(current.board);
-      setPieces(
-    current.pieces.map((shape, i) => ({
-      id: `piece${i}`,
-      shape,
-      placed: false,
-      x: null,
-      y: null,
-    }))
+    setBoard(current.board);
+    setPieces(
+      current.pieces.map((shape, i) => ({
+        id: `piece${i}`,
+        shape,
+        placed: false,
+        x: null,
+        y: null,
+      }))
   );
-
-    
     // タイマーを初期化
     setTimeLeft(TIME_LIMIT);
     setTimeUp(false);
@@ -106,9 +124,13 @@ const resetPieces = () => {
       });
     }, 1000);
 
+    // リスタートフラグをリセット
+    if (justRestarted) {
+      setJustRestarted(false);
+    }
     // クリーンアップ関数でタイマーを停止
     return () => clearInterval(timerRef.current);
-  }, [currentIndex]);
+  }, [currentIndex,stages, justRestarted]);
 
   // タッチ開始時の処理
   const handleTouchStart = (e, rowIndex, colIndex, pieceId) => {
@@ -352,7 +374,7 @@ return (
         <div className={styles.cleared}>
           <p>GAME OVER</p>
           <p>SCORE：{score} 問正解</p>
-          <button className={mainStyles.option} onClick={() => setCurrentIndex(0)}>REPLAY</button>
+          <button className={mainStyles.option} onClick={handleReplay}>REPLAY</button>
           <button className={mainStyles.option} onClick={onBack}>ゲーム選択</button>
         </div>
       )}

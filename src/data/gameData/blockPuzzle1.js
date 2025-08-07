@@ -230,11 +230,13 @@ export const blockPuzzleSmall1 = [
       [1,1,1,1,1],
       [1,1,1,1,1]
     ],
-    pieces: [
+    pieces:[
+      [
       [1,0],
       [1,0],
       [1,1]
-    ],
+      ],
+    ]
   },
   {
     stage: 2,
@@ -245,10 +247,13 @@ export const blockPuzzleSmall1 = [
       [1,0,1,1,1],
       [1,1,1,1,1]
     ],
-    pieces: [
+    pieces:
+    [
+      [
       [1,1,1],
       [0,1,0]
-    ],
+      ],
+    ]
   },
   {
     stage: 3,
@@ -259,9 +264,12 @@ export const blockPuzzleSmall1 = [
       [0,0,1,1,1],
       [1,1,1,1,1]
     ],
-    pieces: [
+    pieces:
+    [
+      [
       [0,1,1],
       [1,1,0]
+    ],
     ],
   },
   {
@@ -273,9 +281,12 @@ export const blockPuzzleSmall1 = [
       [1,1,1,1,1],
       [1,1,1,1,1]
     ],
-    pieces: [
+    pieces:
+    [
+     [
       [1,1,0],
       [0,1,1]
+    ],
     ],
   },
   {
@@ -287,10 +298,13 @@ export const blockPuzzleSmall1 = [
       [1,0,0,1,1],
       [1,1,1,1,1]
     ],
-    pieces: [
+    pieces:
+    [
+     [
       [1,1],
       [1,1],
       [1,0]
+    ],
     ],
   },
   {
@@ -302,11 +316,14 @@ export const blockPuzzleSmall1 = [
       [1,1,1,1,1],
       [1,1,1,1,1]
     ],
-    pieces: [
+    pieces:
+    [
+     [
       [0,1],
       [1,1],
       [0,1]
     ],
+  ]
   },
   {
     stage: 7,
@@ -317,10 +334,13 @@ export const blockPuzzleSmall1 = [
       [1,1,1,1,1],
       [1,1,1,1,1]
     ],
-    pieces: [
+    pieces:
+    [
+     [
       [1,0,1],
       [1,1,1]
     ],
+  ]
   },
   {
     stage: 8,
@@ -331,11 +351,14 @@ export const blockPuzzleSmall1 = [
       [1,0,1,1,1],
       [0,0,1,1,1]
     ],
-    pieces: [
+    pieces:
+    [
+     [
       [0,1],
       [0,1],
       [1,1]
     ],
+  ]
   },
   {
     stage: 9,
@@ -346,11 +369,14 @@ export const blockPuzzleSmall1 = [
       [1,1,0,1,1],
       [1,1,0,1,1]
     ],
-    pieces: [
+    pieces:
+    [
+     [
       [1,0],
       [1,0],
       [1,1]
     ],
+  ]
   },
   {
     stage: 10,
@@ -361,10 +387,13 @@ export const blockPuzzleSmall1 = [
       [1,1,1,1,1],
       [1,1,1,1,1]
     ],
-    pieces: [
+    pieces:
+    [
+     [
       [1,0],
       [1,1]
     ],
+  ]
   },
   {
     stage: 11,
@@ -375,11 +404,14 @@ export const blockPuzzleSmall1 = [
       [1,1,1,1,1],
       [1,1,1,1,1]
     ],
-    pieces: [
+    pieces:
+    [
+     [
       [1,0],
       [1,0],
       [1,1]
     ],
+  ]
   },
   {
     stage: 12,
@@ -390,11 +422,14 @@ export const blockPuzzleSmall1 = [
       [1,0,1,1,1],
       [1,1,1,1,1]
     ],
-    pieces: [
+    pieces:
+    [
+     [
       [1,1],
       [0,1],
       [0,1]
     ],
+  ]
   },
   {
     stage: 13,
@@ -405,10 +440,13 @@ export const blockPuzzleSmall1 = [
       [1,1,0,0,1],
       [1,1,0,1,1]
     ],
-    pieces: [
+    pieces:
+    [
+     [
       [1,1,1],
       [0,1,0]
     ],
+  ]
   },
   {
     stage: 14,
@@ -419,9 +457,12 @@ export const blockPuzzleSmall1 = [
       [1,1,1,1,1],
       [1,1,1,1,1]
     ],
-    pieces: [
+    pieces:
+    [
+     [
       [1,1,0],
       [0,1,1]
     ],
+  ]
   }
 ];

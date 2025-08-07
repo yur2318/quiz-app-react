@@ -4,30 +4,38 @@ import styles from "../styles/module/BlockPuzzle.module.scss";
 import { blockPuzzle1 } from "../data/gameData/blockPuzzle1";
 import { blockPuzzle2 } from "../data/gameData/blockPuzzle2";
 import { blockPuzzle3 } from "../data/gameData/blockPuzzle3";
+import { blockPuzzle4 } from "../data/gameData/blockPuzzle4";
+import { blockPuzzle5 } from "../data/gameData/blockPuzzle5";
+import { blockPuzzle6 } from "../data/gameData/blockPuzzle6";
+import { blockPuzzle7 } from "../data/gameData/blockPuzzle7";
+import { blockPuzzle8 } from "../data/gameData/blockPuzzle8";
+import { blockPuzzle9 } from "../data/gameData/blockPuzzle9";
+import { blockPuzzle10 } from "../data/gameData/blockPuzzle10";
+
 
 // ゲームの基本設定
 const TIME_LIMIT = 60;
 const MAX_STAGE = 10;
 
 // ファイルをステージごとに出題するモード
-// const generateStages = (sources) => {
-//   return Array.from({ length: MAX_STAGE }, (_, i) => {
-//     const source = sources[i % sources.length];
-//     const randomIndex = Math.floor(Math.random() * source.length);
-//     return source[randomIndex];
-//   });
-// };
-
-
-//特定のファイル（例：blockPuzzle1）を順にすべて出題する確認モード
-const generateStages = () => {
-  return blockPuzzle3; // 全問使いたい場合はこちら
+const generateStages = (sources) => {
+  return Array.from({ length: MAX_STAGE }, (_, i) => {
+    const source = sources[i % sources.length];
+    const randomIndex = Math.floor(Math.random() * source.length);
+    return source[randomIndex];
+  });
 };
+
+
+//特定のファイルを出題する確認モード
+// const generateStages = () => {
+//   return blockPuzzle5;
+// };
 
 
 const BlockPuzzlePC = ({ onBack }) => {
   // データソース設定
-  const sources = useMemo(() => [blockPuzzle1, blockPuzzle2, blockPuzzle3], []);
+  const sources = useMemo(() => [blockPuzzle1, blockPuzzle2, blockPuzzle3, blockPuzzle4, blockPuzzle5, blockPuzzle6, blockPuzzle7, blockPuzzle8, blockPuzzle9, blockPuzzle10], []);
 
   // ゲーム状態管理
   const [stages, setStages] = useState(() => generateStages(sources));
@@ -288,11 +296,13 @@ const BlockPuzzlePC = ({ onBack }) => {
       {/* タイマー表示 */}
       <div className={styles.timerRow}>
         <div className={styles.timerText}>
-          STAGE:{currentIndex + 1}　　　　　TIMER: <span>{timeLeft}</span>
+          STAGE : {currentIndex + 1}　　　　　　　TIMER : <span>{timeLeft}</span>
         </div>
+        {!cleared && !timeUp && (
         <button className={styles.resetButton} onClick={resetPieces}>
           リセット
         </button>
+        )}
       </div>
 
 
