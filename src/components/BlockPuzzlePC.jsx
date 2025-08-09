@@ -50,6 +50,7 @@ const BlockPuzzlePC = ({ onBack }) => {
   const [cleared, setCleared] = useState(false);
   const timerRef = useRef(null);
   const [justRestarted, setJustRestarted] = useState(false);
+  const [dragging, setDragging] = useState(null);
 
   // ゲームリスタート処理
   const restart = () => {
@@ -59,7 +60,8 @@ const BlockPuzzlePC = ({ onBack }) => {
     setTimeLeft(TIME_LIMIT);
     setTimeUp(false);
     setCleared(false);
-    setJustRestarted(true); // ← これが重要
+    setJustRestarted(true);
+    setDragging(null);
   };
 
 
@@ -74,6 +76,7 @@ const BlockPuzzlePC = ({ onBack }) => {
       }))
     );
     setCleared(false);
+    setDragging(null);
   };
 
   // ステージ切り替え時の初期化処理
@@ -93,6 +96,7 @@ const BlockPuzzlePC = ({ onBack }) => {
     setTimeLeft(TIME_LIMIT);
     setTimeUp(false);
     setCleared(false);
+    setDragging(null);
 
     // タイマー設定
     if (timerRef.current) clearInterval(timerRef.current);
@@ -160,6 +164,8 @@ const BlockPuzzlePC = ({ onBack }) => {
     e.dataTransfer.setData("offset", JSON.stringify(offset));
     e.dataTransfer.setData("text/plain", pieceId);
 
+    setDragging({ pieceId });
+
     // ドラッグプレビュー作成
     const cellSize = 52;
     const dragPreview = document.createElement("div");
@@ -198,6 +204,10 @@ const BlockPuzzlePC = ({ onBack }) => {
     setTimeout(() => {
       document.body.removeChild(dragPreview);
     }, 0);
+  };
+
+  const handleDragEnd = () => {
+  setDragging(null);
   };
 
   // ピース配置可能性判定
@@ -240,19 +250,26 @@ const BlockPuzzlePC = ({ onBack }) => {
     const id = e.dataTransfer.getData("text/plain");
     const offset = JSON.parse(e.dataTransfer.getData("offset") || '{"row":0,"col":0}');
     const piece = pieces.find((p) => p.id === id);
-    if (!piece) return;
+    if (!piece) {
+      setDragging(null); // 念のため
+      return;
+    }
 
     const px = x - offset.col;
     const py = y - offset.row;
 
     const simulatedPiece = { ...piece, x: px, y: py };
 
-    if (!canPlace(simulatedPiece, px, py)) return;
+      if (!canPlace(simulatedPiece, px, py)) {
+        setDragging(null); // 置けなかった場合も元表示を戻す
+        return;
+      }
 
     setPieces((prev) =>
       prev.map((p) => (p.id === id ? { ...p, placed: true, x: px, y: py } : p))
     );
     setDragOffset(null);
+    setDragging(null);
   };
 
   // パズルクリア判定
@@ -372,7 +389,13 @@ const BlockPuzzlePC = ({ onBack }) => {
           {pieces.map(
             (piece) =>
               !piece.placed && (
-                <div key={piece.id} className={styles.piece} onClick={() => handleRotate(piece.id)}>
+                <div
+                  key={piece.id}
+                  className={styles.piece}
+                  onClick={() => handleRotate(piece.id)}
+                  // ▼ 追加：ドラッグ中なら透明化（下に残らないように）
+                  style={dragging?.pieceId === piece.id ? { opacity: 0, } : undefined}
+                >
                   {piece.shape.map((row, rowIndex) => (
                     <div key={rowIndex} className={styles.pieceRow}>
                       {row.map((cell, colIndex) =>
@@ -383,6 +406,8 @@ const BlockPuzzlePC = ({ onBack }) => {
                             draggable
                             onMouseDown={() => handleCellMouseDown(piece.id, rowIndex, colIndex)}
                             onDragStart={(e) => handleDragStart(e, piece.id)}
+                            // ▼ 追加：ドラッグ終了で透明を解除（キャンセル含む）
+                            onDragEnd={handleDragEnd}
                           />
                         ) : (
                           <div key={colIndex} className={styles.empty}></div>
@@ -395,7 +420,6 @@ const BlockPuzzlePC = ({ onBack }) => {
           )}
         </div>
       )}
-
     </div>
   );
 };
