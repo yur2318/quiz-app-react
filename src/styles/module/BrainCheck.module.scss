@@ -14,6 +14,7 @@
   top: 0;
   width: calc(100% - 40px);
   height: calc(100% - 40px);
+  // min-height: 750px;
   margin: 20px;
   // border: 2px double white;
   pointer-events: none; /* フレームがクリックイベントを受け取らないようにする */
@@ -148,6 +149,8 @@ z-index: 2;
 @media screen and (max-width: cn.$bp-xs) {
 .container {
   margin-top: 50px;
+  min-height: 800px;
+
 }
 .frame {
   width: calc(100% - 20px);
@@ -156,7 +159,7 @@ z-index: 2;
 }
 
 .contentWrapper {
-  padding: 20px 30px;
+  padding: 20px 25px;
 }
 
 .subtitle {
@@ -166,6 +169,7 @@ z-index: 2;
 
 .title {
   font-size: 25px;
+  margin: 10px 0;
 }
 
 .menuTitle{

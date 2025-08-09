@@ -81,7 +81,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  min-height: 163px;
+  min-height: 165px;
   min-width: 120px;
   background-color: none;
   gap: 4px;
@@ -156,15 +156,22 @@
 
 
 @media screen and (max-width: cn.$bp-xs) {
-h2{
-  margin-bottom: 10px;
-  margin-top: 30px;
+// h2{
+//   margin-bottom: 10px;
+//   margin-top: 20px;
+// }
+.timerRow {
+  height: 40px;
+}
+.puzzleArea {
+  margin: 5px auto 10px;
 }
 p{
   margin: 10px 0;
 }
 .board {
   gap: 3px;
+  margin-bottom: 10px;
 }
 .boardRow {
   display: flex;
@@ -202,5 +209,8 @@ p{
 .resetButton {
   width: 100px;
   font-size: 1rem;
+}
+.allClear {
+  width: 300px;
 }
 }

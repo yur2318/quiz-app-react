@@ -28,7 +28,7 @@ const generateStages = (sources) => {
 
 // 特定のファイル出題する確認モード
 // const generateStages = () => {
-//   return blockPuzzleSmall5; // 全問題を順番に出題
+//   return blockPuzzleSmall7; // 全問題を順番に出題
 // };
 
 const BlockPuzzleMB = ({ onBack }) => {
@@ -167,7 +167,7 @@ const resetPieces = () => {
     // 全ての計算を整数にする
     const rawX = (draggingPos.x - boardRect.left) / actualCellSize - (dragging.offsetCol || 0);
     const rawY = (draggingPos.y - boardRect.top) / actualCellSize - (dragging.offsetRow || 0);
-    const dropX = Math.floor(rawX - 1.7); // シンプルにMath.floor()だけ
+    const dropX = Math.floor(rawX - 1.35); // シンプルにMath.floor()だけ
     const dropY = Math.floor(rawY + 0.3); // 小数点での微調整
 
     console.log("Fixed calculation:", { rawX, rawY, dropX, dropY });
@@ -248,13 +248,14 @@ const resetPieces = () => {
   };
 
   // ピースが指定位置に配置可能かチェックする関数
-  const canPlace = (shape, x, y, board) => {
+  const canPlace = (shape, x, y, board, pieces) => {
     for (let dy = 0; dy < shape.length; dy++) {
       for (let dx = 0; dx < shape[dy].length; dx++) {
         if (shape[dy][dx] === 1) {
           const px = x + dx;
           const py = y + dy;
-          // 盤面外または白いセル（1）との重複をチェック
+
+          // 盤面外、または白いセルとの重なりチェック
           if (
             py < 0 ||
             py >= board.length ||
@@ -262,7 +263,24 @@ const resetPieces = () => {
             px >= board[0].length ||
             board[py][px] !== 0
           ) {
-            console.log("canPlace: false", { px, py, boardVal: board[py]?.[px] });
+            return false;
+          }
+
+          // ✅ 他の配置済みピースとの重なりチェック
+          const overlapping = pieces.some(p => {
+            if (!p.placed) return false;
+            return p.shape.some((row, ddy) =>
+              row.some((val, ddx) => {
+                if (val !== 1) return false;
+                const otherX = p.x + ddx;
+                const otherY = p.y + ddy;
+                return otherX === px && otherY === py;
+              })
+            );
+          });
+
+          if (overlapping) {
+            console.log("他のピースと重なってる！", { px, py });
             return false;
           }
         }
@@ -270,6 +288,7 @@ const resetPieces = () => {
     }
     return true;
   };
+
 
   // ドラッグ中のピースを描画する関数
   const renderDraggingPiece = () => {
@@ -352,7 +371,7 @@ return (
     {/* タイマー表示 */}
     <div className={styles.timerRow}>
       <div className={styles.timerText}>
-        STAGE:{currentIndex + 1}　　　　　TIMER: <span>{timeLeft}</span>
+        STAGE:{currentIndex + 1}　TIMER: <span>{timeLeft}</span>
       </div>
       <button className={styles.resetButton} onClick={resetPieces}>
         リセット
@@ -395,7 +414,7 @@ return (
           ) : (
             <>
               <img
-                src="/images/allclear.png"
+                src="/images/allClear.png"
                 alt="ALL CLEAR"
                 className={styles.allClear}
               />
@@ -408,10 +427,16 @@ return (
     </div>
 
     {/* ピース操作エリア */}
-    {!timeUp && (
-      <div className={styles.piecesArea}>
-        {pieces.filter(p => !p.placed).map((piece) => (
-          <div key={piece.id} className={styles.piece}>
+  {!timeUp && (
+    <div className={styles.piecesArea}>
+      {pieces.filter(p => !p.placed).map((piece) => {
+        const isDragging = dragging?.pieceId === piece.id;
+        return (
+          <div
+            key={piece.id}
+            className={styles.piece}
+            style={isDragging ? { opacity: 0 } : {}}
+          >
             {piece.shape.map((row, rowIndex) => (
               <div key={rowIndex} className={styles.pieceRow}>
                 {row.map((cell, colIndex) => (
@@ -419,7 +444,9 @@ return (
                     key={colIndex}
                     className={cell ? styles.block : styles.empty}
                     style={{ width: `${cellSize}px`, height: `${cellSize}px` }}
-                    onTouchStart={(e) => handleTouchStart(e, rowIndex, colIndex, piece.id)}
+                    onTouchStart={(e) =>
+                      handleTouchStart(e, rowIndex, colIndex, piece.id)
+                    }
                   />
                 ))}
               </div>
@@ -441,9 +468,11 @@ return (
               回転
             </button>
           </div>
-        ))}
-      </div>
-    )}
+        );
+      })}
+    </div>
+  )}
+
 
     {/* ドラッグ中のピース */}
     {renderDraggingPiece()}

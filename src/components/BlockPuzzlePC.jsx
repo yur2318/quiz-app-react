@@ -29,7 +29,7 @@ const generateStages = (sources) => {
 
 //特定のファイルを出題する確認モード
 // const generateStages = () => {
-//   return blockPuzzle5;
+//   return blockPuzzle7;
 // };
 
 
@@ -354,7 +354,7 @@ const BlockPuzzlePC = ({ onBack }) => {
             ) : (
               <>
                 <img
-                  src="/images/allclear.png"
+                  src="/images/allClear.png"
                   alt="ALL CLEAR"
                   className={styles.allClear}
                 />
